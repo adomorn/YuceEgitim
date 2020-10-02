@@ -19,5 +19,34 @@ namespace YuceEgitim.Database
             modelBuilder.ApplyConfiguration(new UserConfiguration());
 
         }
+
+        public override int SaveChanges()
+        {
+            ChangeTracker.DetectChanges();
+            foreach (var entry in ChangeTracker.Entries())
+            {
+                if (entry.Entity is ISilinebilinir)
+                {
+                    switch (entry.State)
+                    {
+                        case EntityState.Detached:
+                            break;
+                        case EntityState.Unchanged:
+                            break;
+                        case EntityState.Deleted:
+                            entry.State = EntityState.Modified;
+                            entry.CurrentValues["Silindi"] = true;
+                            break;
+                        case EntityState.Modified:
+                            break;
+                        case EntityState.Added:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+            }
+            return base.SaveChanges();
+        }
     }
 }

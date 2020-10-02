@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YuceEgitim.Database\YuceEgitim.Database.csproj" />
+    <ProjectReference Include="..\YuceEgitim.Services\YuceEgitim.Services.csproj" />
   </ItemGroup>
 
 </Project>

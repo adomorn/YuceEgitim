@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YuceEgitim.Web", "YuceEgitim.Web\YuceEgitim.Web.csproj", "{577CD83F-35D5-4B6F-B571-0A8C1963292F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuceEgitim.Database", "YuceEgitim.Database\YuceEgitim.Database.csproj", "{1E114B14-900D-4DB8-BAFD-969478AD51CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YuceEgitim.Database", "YuceEgitim.Database\YuceEgitim.Database.csproj", "{1E114B14-900D-4DB8-BAFD-969478AD51CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuceEgitim.Entites", "YuceEgitim.Entites\YuceEgitim.Entites.csproj", "{A67AC91B-115B-4D03-B575-EEE44E12A5C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YuceEgitim.Entites", "YuceEgitim.Entites\YuceEgitim.Entites.csproj", "{A67AC91B-115B-4D03-B575-EEE44E12A5C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuceEgitim.Services", "YuceEgitim.Services\YuceEgitim.Services.csproj", "{1811D8E6-F88C-4B9A-9985-B6D2D79D5B7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A67AC91B-115B-4D03-B575-EEE44E12A5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A67AC91B-115B-4D03-B575-EEE44E12A5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A67AC91B-115B-4D03-B575-EEE44E12A5C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1811D8E6-F88C-4B9A-9985-B6D2D79D5B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1811D8E6-F88C-4B9A-9985-B6D2D79D5B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1811D8E6-F88C-4B9A-9985-B6D2D79D5B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1811D8E6-F88C-4B9A-9985-B6D2D79D5B7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

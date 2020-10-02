@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using YuceEgitim.Database;
+using YuceEgitim.Services;
 
 namespace YuceEgitim.Web
 {
@@ -33,6 +34,8 @@ namespace YuceEgitim.Web
 
 
             });
+            services.AddSingleton<ICounterService, CounterService>();
+
             services.AddControllersWithViews();
 
         }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace YuceEgitim.Entites
 {
-    interface ISilinebilinir
+    public interface ISilinebilinir
     {
         bool Silindi { get; set; }
     }
