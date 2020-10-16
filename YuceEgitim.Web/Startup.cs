@@ -1,16 +1,18 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Data.SqlClient.DataClassification;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using YuceEgitim.Database;
 using YuceEgitim.Services;
+using YuceEgitim.Web.Classes;
 
 namespace YuceEgitim.Web
 {
@@ -34,9 +36,10 @@ namespace YuceEgitim.Web
 
 
             });
+            services.AddScoped<ITicket, Ticket>();
             services.AddSingleton<ICounterService, CounterService>();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
         }
 
@@ -48,9 +51,27 @@ namespace YuceEgitim.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-
+    
             app.UseStaticFiles();
-            app.UseRouting();
+            app.UseRouting()
+                .UseTicket();
+
+            //app.Use(async (context, next) =>
+            //{
+            //    //herhangi bir şekilde response ya müdahil olmayan islem
+            //   // await context.Response.WriteAsync("Merhaba Dünya");
+            //    await next.Invoke();
+            //    // herhangi bir log islemi
+
+            //});
+
+            //app.Use(async (context, next) =>
+            //{
+            //    // await context.Response.WriteAsync("Merhaba Dünya");
+            //    await next.Invoke();
+            //    // ilg girilen yer burası
+
+            //});
 
             app.UseEndpoints(endpoints =>
             {

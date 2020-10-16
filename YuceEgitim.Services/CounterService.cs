@@ -7,6 +7,7 @@ namespace YuceEgitim.Services
     public class CounterService : ICounterService
     {
         private readonly List<int> _myList;
+        private readonly object lockobj = new Object();
 
         public CounterService()
         {
@@ -21,7 +22,8 @@ namespace YuceEgitim.Services
 
         public void AddToMyList(int deger)
         {
-            _myList.Add(deger);
+            lock(lockobj){ _myList.Add(deger); }
+            
         }
     }
 
