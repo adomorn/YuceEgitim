@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using YuceEgitim.Database;
 using YuceEgitim.Services;
 using YuceEgitim.Web.Classes;
@@ -15,13 +16,15 @@ namespace YuceEgitim.Web.Controllers
     {
         private readonly EgitimDbContext _db;
         private readonly ICounterService _counterService;
+        private readonly MusteriOptions MusteriOptions;
         private readonly ITicket _ticket;
 
-        public HelloController(EgitimDbContext db, ICounterService _counterService, ITicket ticket)
+        public HelloController(EgitimDbContext db, ICounterService _counterService, ITicket ticket, IOptions<MusteriOptions> options)
         {
             _db = db;
             _ticket = ticket;
             this._counterService = _counterService;
+            MusteriOptions = options.Value;
         }
 
         public IActionResult Index()

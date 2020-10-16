@@ -30,6 +30,11 @@ namespace YuceEgitim.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var MusteriAdi = Configuration.GetSection("Musteri:Adi").Value;
+
+            var musteriOptions = Configuration.GetSection(MusteriOptions.Key).Get<MusteriOptions>();
+            services.Configure<MusteriOptions>(Configuration.GetSection(MusteriOptions.Key));
+
             services.AddDbContext<EgitimDbContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("MyConnection"));
@@ -51,7 +56,7 @@ namespace YuceEgitim.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-    
+
             app.UseStaticFiles();
             app.UseRouting()
                 .UseTicket();
